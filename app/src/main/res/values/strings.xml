@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Nasa Now</string>
+    <string name="auth_hint_password">Пароль</string>
+    <string name="auth_hint_username">Логин</string>
+</resources>
