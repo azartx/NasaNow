@@ -9,21 +9,10 @@ import android.view.ViewGroup
 import com.solo4.nasanow.R
 import com.solo4.nasanow.data.base.BaseFragment
 
-class AuthFragment : BaseFragment() {
+class AuthFragment : Fragment(R.layout.auth_fragment) {
 
     private lateinit var viewModel: AuthViewModel
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.auth_fragment, container, false)
-    }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(AuthViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
 
 }

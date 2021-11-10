@@ -1,5 +1,7 @@
 <resources>
+    // Auth Screen
     <string name="app_name">Nasa Now</string>
     <string name="auth_hint_password">Пароль</string>
     <string name="auth_hint_username">Логин</string>
+    <string name="screen_bg_description">Фон экрана</string>
 </resources>

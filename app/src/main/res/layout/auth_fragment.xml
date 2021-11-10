@@ -7,6 +7,7 @@
     tools:context=".ui.auth.AuthFragment">
 
     <ImageView
+        android:contentDescription="@string/screen_bg_description"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:src="@drawable/ic_background_auth"
@@ -15,6 +16,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:scaleType="centerCrop" />
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/progress_auth"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/textinput_username"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:trackCornerRadius="20dp"
+        android:indeterminate="true"
+        android:visibility="visible"
+        tools:visibility="visible" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textinput_username"
