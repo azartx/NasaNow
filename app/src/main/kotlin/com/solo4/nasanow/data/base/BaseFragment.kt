@@ -6,6 +6,9 @@ import androidx.lifecycle.ViewModel
 import androidx.viewbinding.ViewBinding
 
 abstract class BaseFragment(@LayoutRes layoutRes: Int) : Fragment(layoutRes) {
+    /**
+     * viewBinding
+     */
     abstract val views: ViewBinding
     abstract val viewModel: ViewModel
 }

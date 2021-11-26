@@ -7,26 +7,26 @@
     tools:context=".ui.auth.AuthFragment">
 
     <ImageView
-        android:contentDescription="@string/screen_bg_description"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="0dp"
+        android:contentDescription="@string/screen_bg_description"
+        android:scaleType="centerCrop"
         android:src="@drawable/ic_background_auth"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/textinput_username"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:scaleType="centerCrop" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.progressindicator.LinearProgressIndicator
         android:id="@+id/progress_auth"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@id/textinput_username"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:trackCornerRadius="20dp"
         android:indeterminate="true"
-        android:visibility="visible"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/textinput_username"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:trackCornerRadius="20dp"
         tools:visibility="visible" />
 
     <com.google.android.material.textfield.TextInputLayout
@@ -65,5 +65,16 @@
             android:inputType="textPassword" />
 
     </com.google.android.material.textfield.TextInputLayout>
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="@string/screen_bg_description"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_nasa_lable"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textinput_password" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
