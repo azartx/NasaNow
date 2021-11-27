@@ -7,6 +7,7 @@
     tools:context=".ui.auth.AuthFragment">
 
     <ImageView
+        android:id="@+id/auth_background"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:contentDescription="@string/screen_bg_description"

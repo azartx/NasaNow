@@ -69,6 +69,7 @@ dependencies {
 
     // retrofit
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-moshi:2.4.0")
     implementation("com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.2")
 
     // moshi
@@ -77,6 +78,8 @@ dependencies {
     // dagger-hilt
     implementation("com.google.dagger:hilt-android:2.40.1")
     kapt("com.google.dagger:hilt-compiler:2.40.1")
+    annotationProcessor("androidx.hilt:hilt-compiler:1.0.0")
+    implementation("androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03")
     implementation("androidx.hilt:hilt-navigation-fragment:1.0.0")
 
     // navigation
@@ -86,4 +89,11 @@ dependencies {
 
     // view binding property delegate
     implementation("com.github.kirich1409:viewbindingpropertydelegate-noreflection:1.5.2")
+
+    // timber
+    implementation("com.jakewharton.timber:timber:5.0.1")
+
+    // glide
+    implementation("com.github.bumptech.glide:glide:4.12.0")
+    annotationProcessor("com.github.bumptech.glide:compiler:4.12.0")
 }
