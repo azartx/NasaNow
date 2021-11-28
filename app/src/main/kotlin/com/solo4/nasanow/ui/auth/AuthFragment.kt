@@ -11,6 +11,7 @@ import com.solo4.nasanow.databinding.AuthFragmentBinding
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.solo4.nasanow.R
 import com.solo4.nasanow.data.base.RequestState
+import com.solo4.nasanow.utils.showToast
 import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.android.scopes.ViewModelScoped
 import kotlinx.coroutines.Dispatchers
@@ -36,13 +37,12 @@ class AuthFragment @Inject constructor() : BaseFragment(R.layout.auth_fragment) 
         super.onViewCreated(view, savedInstanceState)
         views.authBackground.setOnClickListener {
             viewModel.getApodImage()
-            Log.e("ffff","start")
         }
 
     }
 
     private suspend fun receive() {
-        viewModel.newImageUrl.collect { imageBitmap ->
+        viewModel.newImageUrl.collectLatest { imageBitmap ->
             withContext(Dispatchers.Main) {
                 views.authBackground.setImageBitmap(imageBitmap)
             }
@@ -53,16 +53,14 @@ class AuthFragment @Inject constructor() : BaseFragment(R.layout.auth_fragment) 
                 when(state) {
                     is RequestState.InProgress -> {
                         views.progressAuth.visibility = View.VISIBLE
-                        Toast.makeText(requireContext(), state.message, Toast.LENGTH_SHORT).show()
+                        showToast(state.message)
                     }
                     is RequestState.Success -> {
                         views.progressAuth.visibility = View.GONE
-                        Toast.makeText(requireContext(), state.message, Toast.LENGTH_SHORT).show()
-                    }
+                        showToast(state.message)                    }
                     is RequestState.Failure -> {
                         views.progressAuth.visibility = View.GONE
-                        Toast.makeText(requireContext(), state.message, Toast.LENGTH_SHORT).show()
-                    }
+                        showToast(state.message)                    }
                 }
             }
         }

@@ -4,6 +4,7 @@ import android.app.Application
 import com.bumptech.glide.Glide
 import com.bumptech.glide.RequestManager
 import com.solo4.nasanow.ui.auth.AuthRepository
+import com.solo4.nasanow.ui.auth.AuthUseCase
 import com.solo4.nasanow.ui.auth.AuthViewModel
 import dagger.Module
 import dagger.Provides
@@ -19,5 +20,5 @@ import javax.inject.Inject
 object ViewModelsModule {
     @ViewModelScoped
     @Provides
-    fun provideAuthViewModel(repository: AuthRepository, glide: RequestManager) = AuthViewModel(repository, glide)
+    fun provideAuthViewModel(useCase: AuthUseCase) = AuthViewModel(useCase)
 }
