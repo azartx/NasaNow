@@ -6,8 +6,6 @@ import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
-import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 class GlideImageUtil(private val glide: RequestManager) {
 

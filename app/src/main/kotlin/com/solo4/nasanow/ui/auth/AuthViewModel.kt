@@ -1,12 +1,12 @@
 package com.solo4.nasanow.ui.auth
 
 import android.graphics.Bitmap
+import android.util.Log
 import com.solo4.nasanow.data.base.BaseViewModel
 import com.solo4.nasanow.data.base.RequestState
 import com.solo4.nasanow.utils.GlideImageUtil
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.MutableSharedFlow
-import kotlinx.coroutines.flow.asSharedFlow
+import kotlinx.coroutines.flow.*
 import javax.inject.Inject
 
 @HiltViewModel
@@ -14,7 +14,7 @@ class AuthViewModel @Inject constructor(
     private val useCase: AuthUseCase
 ) : BaseViewModel() {
 
-    private val _requestState: MutableSharedFlow<RequestState> = MutableSharedFlow()
+    private val _requestState = MutableSharedFlow<RequestState>()
     val requestState = _requestState.asSharedFlow()
 
     private val _newImageUrl = MutableSharedFlow<Bitmap>()
@@ -22,13 +22,14 @@ class AuthViewModel @Inject constructor(
 
     fun getApodImage() {
         launchOnLifecycle {
-            _requestState.emit(RequestState.InProgress("Update image"))
+            _requestState.emit(RequestState.InProgress("Загружаю..."))
             val result = useCase.getApod()
             result.onSuccess { response ->
                 uploadImage(response[0].url)
+
             }
             result.onFailure {
-                _requestState.emit(RequestState.Failure("Failed to upload image"))
+                _requestState.emit(RequestState.Failure("Ошибка, повторите!"))
             }
         }
     }
@@ -40,10 +41,10 @@ class AuthViewModel @Inject constructor(
                         if (isSuccess) {
                             image?.let {
                                 _newImageUrl.emit(it)
-                                _requestState.emit(RequestState.Success("Image upload success"))
-                            } ?: _requestState.emit(RequestState.Failure("Failed to load an image"))
+                                _requestState.emit(RequestState.Success("Изображение успешно загружено"))
+                            } ?: _requestState.emit(RequestState.Failure("Ошибка загрузки изображения"))
                         } else {
-                            _requestState.emit(RequestState.Failure("Failed to load an image"))
+                            _requestState.emit(RequestState.Failure("Ошибка загрузки изображения"))
                         }
                     }
                 }

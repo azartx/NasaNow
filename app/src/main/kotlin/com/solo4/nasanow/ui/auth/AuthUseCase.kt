@@ -1,9 +1,7 @@
 package com.solo4.nasanow.ui.auth
 
-import android.graphics.Bitmap
 import com.bumptech.glide.RequestManager
 import com.solo4.nasanow.data.base.BaseUseCase
-import com.solo4.nasanow.data.base.RequestState
 import com.solo4.nasanow.data.network.responses.ApodResponse
 import com.solo4.nasanow.utils.GlideImageUtil
 import javax.inject.Inject
