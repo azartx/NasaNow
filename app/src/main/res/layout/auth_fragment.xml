@@ -18,6 +18,28 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:id="@+id/imageview_button_refresh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:contentDescription="@string/auth_refresh_description"
+        android:focusable="true"
+        android:src="@drawable/ic_refresh"
+        app:layout_constraintStart_toEndOf="@id/guideline_parent_start"
+        app:layout_constraintTop_toBottomOf="@id/guideline_parent_top" />
+
+    <ImageView
+        android:id="@+id/imageview_button_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:contentDescription="@string/auth_refresh_description"
+        android:focusable="true"
+        android:src="@drawable/ic_info"
+        app:layout_constraintEnd_toStartOf="@id/guideline_parent_end"
+        app:layout_constraintTop_toBottomOf="@id/guideline_parent_top" />
+
     <com.google.android.material.progressindicator.LinearProgressIndicator
         android:id="@+id/progress_auth"
         android:layout_width="0dp"
@@ -68,6 +90,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <ImageView
+        android:id="@+id/imageview_nasa_logo"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:contentDescription="@string/screen_bg_description"
@@ -77,5 +100,73 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textinput_password" />
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:id="@+id/scrollview_description"
+        android:visibility="gone"
+        tools:visibility="visible"
+        android:paddingVertical="10dp"
+        android:paddingHorizontal="10dp"
+        app:layout_constraintBottom_toBottomOf="@id/imageview_nasa_logo"
+        app:layout_constraintEnd_toEndOf="@id/imageview_nasa_logo"
+        app:layout_constraintStart_toStartOf="@id/imageview_nasa_logo"
+        app:layout_constraintTop_toTopOf="@id/imageview_nasa_logo" >
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_rounded_rect" >
+
+            <TextView
+                android:id="@+id/textview_image_description"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="10dp"
+                android:textAlignment="center" />
+
+            <ImageView
+                android:id="@+id/imageview_button_close_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:layout_marginEnd="6dp"
+                android:contentDescription="@string/auth_button_close_description_window"
+                android:src="@drawable/ic_close"
+                android:layout_gravity="top|end" />
+
+        </FrameLayout>
+
+    </ScrollView>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_parent_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_parent_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="20dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_parent_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_parent_end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="20dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

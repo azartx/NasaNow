@@ -4,4 +4,6 @@
     <string name="auth_hint_password">Пароль</string>
     <string name="auth_hint_username">Логин</string>
     <string name="screen_bg_description">Фон экрана</string>
+    <string name="auth_refresh_description">Обновить</string>
+    <string name="auth_button_close_description_window">Закрыть окно</string>
 </resources>

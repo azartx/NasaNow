@@ -14,19 +14,19 @@ class AuthViewModel @Inject constructor(
     private val useCase: AuthUseCase
 ) : BaseViewModel() {
 
-    private val _requestState = MutableSharedFlow<RequestState>()
-    val requestState = _requestState.asSharedFlow()
-
     private val _newImageUrl = MutableSharedFlow<Bitmap>()
     val newImageUrl = _newImageUrl.asSharedFlow()
+
+    private val _imageDescription = MutableSharedFlow<String>()
+    val imageDescription = _imageDescription.asSharedFlow()
 
     fun getApodImage() {
         launchOnLifecycle {
             _requestState.emit(RequestState.InProgress("Загружаю..."))
             val result = useCase.getApod()
             result.onSuccess { response ->
+                _imageDescription.emit(response[0].explanation)
                 uploadImage(response[0].url)
-
             }
             result.onFailure {
                 _requestState.emit(RequestState.Failure("Ошибка, повторите!"))
